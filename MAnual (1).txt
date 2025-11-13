@@ -1,0 +1,216 @@
+Experiment 1: Library Borrowing Records Management
+Objective
+•	Manage borrowing records of books in a library.
+•	Compute average number of books borrowed.
+•	Find books with highest and lowest borrowings.
+•	Count members with zero borrowings.
+•	Find the most frequently borrowed book count (mode).
+Theory
+Use dictionaries to store book borrowing counts. Compute statistical values using loops and collections.
+Algorithm
+1.	Store book borrowing data in a dictionary: {book_id: borrow_count}.
+2.	Calculate average by summing all borrow counts and dividing by total books.
+3.	Find max and min borrowing counts by scanning the dictionary.
+4.	Count books with borrow count zero.
+5.	Use a frequency map to find mode (most frequent borrow count).
+Sample Input
+Dictionary as shown in the code above.
+Sample Output
+Average books borrowed: 4.5
+Highest borrowed books: ['Book3', 'Book5'] with 10 borrowings
+Lowest borrowed books: ['Book2', 'Book6'] with 0 borrowings
+Members with zero borrowings: 2
+Most frequently borrowed book count (mode): 0
+Complexity
+•	Time Complexity: O(n)
+•	Space Complexity: O(n)
+Viva Questions
+•	How is the average calculated?
+•	How do you find the mode of a dataset?
+•	Can there be multiple modes? How is that handled?
+•	What is the time complexity of your solution?
+•	Why use a dictionary instead of a list?
+
+
+
+Experiment 2: Customer Account ID Search
+Objective
+•	Implement Linear Search and Binary Search on customer account IDs.
+•	Understand differences in efficiency.
+Theory
+Linear search checks elements sequentially. Binary search divides search space but requires sorted data.
+Algorithm
+Linear Search
+1.	Traverse the list sequentially.
+2.	If element matches target, return found.
+3.	If end is reached, return not found.
+Binary Search
+1.	Sort the list.
+2.	Find middle element.
+3.	If middle equals target, return found.
+4.	If target less, search left half; else right half.
+5.	Repeat until found or list exhausted.
+Sample Output
+Linear Search: True
+Binary Search: True
+Complexity
+•	Linear Search: O(n)
+•	Binary Search: O(log n) (after sorting)
+Viva Questions
+•	What is the prerequisite for binary search?
+•	Can binary search be used on unsorted data?
+•	How does sorting affect the overall complexity?
+•	Which search is better for small datasets? Why?
+
+
+
+
+Experiment 3: Undo/Redo System using Stack
+Objective
+•	Implement undo/redo system using stacks.
+•	Maintain history of changes and allow reversal.
+Theory
+Stack supports Last-In-First-Out (LIFO). Two stacks: undo stack stores previous states, redo stack stores undone states.
+Algorithm
+1.	On new change: push current state to undo stack, clear redo stack.
+2.	Undo: pop from undo stack to restore state, push current state to redo stack.
+3.	Redo: pop from redo stack to restore state, push current state to undo stack.
+Sample Output
+Current Document State: Hello, World
+Current Document State: Hello
+Current Document State: Hello, World
+Complexity
+•	All operations: O(1)
+Viva Questions
+•	Why are stacks used for undo/redo?
+•	What happens if redo stack is not cleared after a new change?
+•	Can this system be implemented without stacks? Explain.
+•	How would you limit the size of undo history?
+
+
+Experiment 4: Event Processing System using Queue
+Objective
+•	Simulate event processing using queue.
+•	Add, process, display, and cancel events.
+Theory
+Queue supports FIFO order. Deque from collections module provides efficient queue operations.
+Algorithm
+1.	Add event: append to queue.
+2.	Process event: pop from front.
+3.	Cancel event: search and remove if not processed.
+Sample Output
+Pending Events: ['E1', 'E2']
+Processing event: E1
+Canceled event: E2
+Pending Events: []
+Complexity
+•	Add/process: O(1)
+•	Cancel: O(n)
+Viva Questions
+•	Why is queue suited for event processing?
+•	What is FIFO and how does it apply here?
+•	What is the complexity of cancel operation?
+•	How could cancel be optimized?
+
+
+Experiment 5: Hashtable with Chaining
+Objective
+•	Implement hashtable of size 10 using chaining.
+•	Handle insert, search, and delete operations.
+Theory
+Hash function: key % 10. Collisions handled by storing multiple elements in a bucket (list).
+Algorithm
+1.	Insert: compute index, append if no duplicate.
+2.	Search: scan bucket list.
+3.	Delete: remove from bucket list.
+Complexity
+•	Average: O(1)
+•	Worst-case: O(n)
+Viva Questions
+•	What is the division method in hashing?
+•	How does chaining handle collisions?
+•	What are pros and cons of chaining?
+
+
+
+Experiment 6: Hashtable with Linear Probing
+Objective
+•	Implement hashtable of fixed size using linear probing collision resolution.
+•	Support insert, search, delete, display operations.
+Theory
+On collision, linearly probe next slot. Handle wrap-around with modulo arithmetic.
+Algorithm
+1.	Insert: probe next index till empty or duplicate.
+2.	Search: probe until key found or empty slot.
+3.	Delete: mark slot as deleted to handle probing.
+Complexity
+•	Average: O(1)
+•	Worst-case: 
+Data Structures & Algorithms - Detailed Lab Manual
+
+
+
+
+
+Experiment 7: Graph Traversal of City Locations using BFS and DFS
+Objective
+o	Represent a graph of popular locations as adjacency matrix and adjacency list.
+o	Perform Depth-First Search (DFS) using adjacency matrix.
+o	Perform Breadth-First Search (BFS) using adjacency list.
+o	Determine sequence of visiting locations starting from a given node.
+Theory
+A graph is represented by nodes (locations) and edges (routes). DFS explores as far as possible along each branch before backtracking. BFS explores neighbors level by level. Adjacency matrix uses 2D arrays, adjacency list uses lists of neighbors. 
+Algorithm
+DFS using Adjacency Matrix
+5.	Initialize visited array as False for all nodes.
+6.	Start at the given node, mark visited, print it.
+7.	For each adjacent node in matrix, if not visited, recursively call DFS.
+BFS using Adjacency List
+8.	Initialize visited array as False and queue.
+9.	Start at the given node, mark visited, enqueue it.
+10.	While queue not empty, dequeue node, print it, enqueue all unvisited neighbors.
+Sample Output
+DFS traversal starting from A:
+A B D C E 
+BFS traversal starting from A:
+A B C D E 
+Complexity
+o	DFS using adjacency matrix: O(V^2) where V is number of vertices
+o	BFS using adjacency list: O(V + E) where E is number of edges
+Viva Questions
+o	Why is DFS implemented with adjacency matrix here?
+o	What are the advantages of adjacency lists for BFS?
+o	What data structure is used to keep track of nodes in BFS?
+o	How do BFS and DFS differ in their traversal strategies?
+
+
+
+
+
+Experiment 8: Pizza Delivery Minimum Time Problem using Graphs
+Objective
+o	Model pizza delivery locations as graph nodes.
+o	Edges represent time to travel between locations.
+o	Find the minimum total time to deliver pizza to all customers.
+o	Use appropriate graph algorithms and data structures.
+Theory
+The problem is a variation of the Travelling Salesman Problem (TSP) or shortest path covering all nodes. Since exact TSP is NP-hard, heuristic or shortest path algorithms (like Dijkstra or BFS for unweighted) can be applied depending on data. 
+Algorithm (Using Dijkstra’s Algorithm)
+21.	Represent locations as graph nodes and travel times as edge weights.
+22.	From the pizza shop starting node, use Dijkstra's algorithm to find shortest paths to all delivery locations.
+23.	Sum shortest path times or find minimum route covering all nodes (approximate).
+Sample Output
+Minimum time from pizza shop to each location:
+Location 0: 0 minutes
+Location 1: 10 minutes
+Location 2: 15 minutes
+Location 3: 22 minutes
+Location 4: 20 minutes
+Complexity
+o	Dijkstra's algorithm: O(E log V) where E is edges, V is vertices.
+Viva Questions
+o	What data structure is used to optimize Dijkstra's algorithm?
+o	Why can’t BFS be used for weighted graphs?
+o	How would you extend this to plan the exact route covering all customers?
+o	What are possible heuristic algorithms to solve TSP approximately?
+
